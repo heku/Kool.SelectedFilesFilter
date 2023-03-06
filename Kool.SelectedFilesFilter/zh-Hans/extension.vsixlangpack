@@ -1,0 +1,7 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<PackageLanguagePackManifest Version="2.0.0" xmlns="http://schemas.microsoft.com/developer/vsx-schema/2011">
+  <Metadata>
+    <DisplayName>选中文件过滤器</DisplayName>
+    <Description>一个开源的 Visual Studio 拓展，允许你在解决方案资源管理器中过滤出选中的文件。</Description>
+  </Metadata>
+</PackageLanguagePackManifest>

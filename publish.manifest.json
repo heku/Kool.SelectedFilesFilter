@@ -1,0 +1,28 @@
+{
+  "$schema": "http://json.schemastore.org/vsix-publish",
+  "categories": [
+    "Coding",
+    "Other"
+  ],
+  "identity": {
+    "internalName": "SelectedFilesFilter",
+    "displayName": "Selected Files Filter",
+    "tags": [
+      "kool",
+      "solution filter",
+      "scope to these"
+    ]
+  },
+  "overview": "publish.overview.md",
+  "assetFiles": [
+    {
+      "pathOnDisk": "Screenshots/preview.png",
+      "targetPath": "Screenshots/preview.png"
+    }
+  ],
+  "priceCategory": "free",
+  "publisher": "Heku",
+  "private": false,
+  "qna": false,
+  "repo": "https://github.com/heku/kool.selectedfilesfilter"
+}

@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<CommandTable xmlns="http://schemas.microsoft.com/VisualStudio/2005-10-18/CommandTable" xmlns:xs="http://www.w3.org/2001/XMLSchema" language="zh-hans">
+
+  <Include href="Menus.vsct" />
+
+  <Commands package="PACKAGE">
+    <Buttons>
+      <Button guid="PACKAGE" id="SELECTED_FILES_FILTER_CMD_ID" priority="0x0400" type="Button">
+        <Parent guid="guidSHLMainMenu" id="IDG_VS_TOOLBAR_PROJWIN_FILTERS" />
+        <Icon guid="ImageCatalogGuid" id="NestSelectedTreeView" />
+        <CommandFlag>IconAndText</CommandFlag>
+        <CommandFlag>IconIsMoniker</CommandFlag>
+        <CommandFlag>DefaultInvisible</CommandFlag>
+        <CommandFlag>DynamicVisibility</CommandFlag>
+        <Strings>
+          <ButtonText>选中文件过滤器</ButtonText>
+          <CommandName>SolutionExplorer.SelectedFilesFilter</CommandName>
+          <LocCanonicalName>.SolutionExplorer.SelectedFilesFilter</LocCanonicalName>
+        </Strings>
+      </Button>
+    </Buttons>
+  </Commands>
+</CommandTable>

@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<CommandTable xmlns="http://schemas.microsoft.com/VisualStudio/2005-10-18/CommandTable" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+  <Extern href="stdidcmd.h" />
+  <Extern href="vsshlids.h" />
+
+  <!-- https://github.com/MicrosoftDocs/win32/blob/docs/desktop-src/inputdev/virtual-key-codes.md -->
+  <!-- The best choice is "Ctrl+[, S", however it's already used by Visual Studio, so let user choose what he likes. -->
+  <!--
+  <KeyBindings>
+    <KeyBinding editor="guidVSStd97" guid="CMD_SET" id="SELECTED_FILES_FILTER_CMD_ID" mod1="Control" key1="VK_OEM_4" key2="S" />
+  </KeyBindings>
+  -->
+
+  <!-- https://learn.microsoft.com/en-us/visualstudio/extensibility/visibilityconstraints-element -->
+  <VisibilityConstraints>
+    <!-- Let the visibility similar as VS builtin filters -->
+    <VisibilityItem guid="PACKAGE" id="SELECTED_FILES_FILTER_CMD_ID" context="FullSolutionLoading" />
+  </VisibilityConstraints>
+
+  <Symbols>
+    <GuidSymbol name="PACKAGE" value="{C18317D5-3BE4-49F1-8CD0-1956F7C00A1D}">
+      <IDSymbol name="SELECTED_FILES_FILTER_CMD_ID" value="0x0100" />
+    </GuidSymbol>
+    <!-- VSConstants.UICONTEXT.FullSolutionLoading_string -->
+    <GuidSymbol name="FullSolutionLoading" value="{164FD4DC-B2A4-448E-BB60-0583CD343D3B}" />
+    <!-- Found via ImageLibraryViewer -->
+    <GuidSymbol name="ImageCatalogGuid" value="{AE27A6B0-E345-4288-96DF-5EAF394EE369}">
+      <IDSymbol name="NestSelectedTreeView" value="3956" />
+    </GuidSymbol>
+  </Symbols>
+</CommandTable>

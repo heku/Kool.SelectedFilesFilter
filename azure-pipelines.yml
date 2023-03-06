@@ -1,0 +1,105 @@
+trigger:
+- '*'
+- refs/tags/v*
+
+variables:
+  versionPrefix: 1.0
+
+# https://learn.microsoft.com/en-us/azure/devops/pipelines/process/run-number?view=azure-devops&tabs=yaml
+name: $(versionPrefix).$(Rev:r)0
+
+jobs:
+- job: build
+  pool:
+    vmImage: windows-latest
+  variables:
+    solution: '**/*.sln'
+    buildPlatform: Any CPU
+    buildConfiguration: Release
+  steps:
+  - task: NuGetToolInstaller@1
+  - task: NuGetCommand@2
+    displayName: Nuget restore
+    inputs:
+      restoreSolution: $(solution)
+  - task: PowerShell@2
+    displayName: Update versions
+    inputs:
+      targetType: inline
+      script: |
+        Import-Module -Force -Verbose .\vsix.psm1
+        UpdateVersion $(Build.BuildNumber)
+  - task: VSBuild@1
+    displayName: Build solution
+    inputs:
+      maximumCpuCount: true
+      solution: $(solution)
+      platform: $(BuildPlatform)
+      configuration: $(BuildConfiguration)
+      msbuildArchitecture: x64
+      msbuildArgs: /v:m /p:DeployExtension=false /p:ZipPackageCompressionLevel=normal
+  - task: CopyFiles@2
+    displayName: Copy files to ArtifactStagingDirectory
+    inputs:
+      Contents: |
+        vsix.psm1
+        publish.*
+        Screenshots/*
+      TargetFolder: $(Build.ArtifactStagingDirectory)
+      CleanTargetFolder: true
+  - task: CopyFiles@2
+    displayName: Copy files to ArtifactStagingDirectory
+    inputs:
+      Contents: '**/*.vsix'
+      TargetFolder: $(Build.ArtifactStagingDirectory)
+      flattenFolders: true
+  - task: PublishBuildArtifacts@1
+    displayName: Publish artifacts
+    inputs:
+      PathtoPublish: $(Build.ArtifactStagingDirectory)
+      ArtifactName: staging
+      publishLocation: Container
+
+
+# https://learn.microsoft.com/en-us/azure/devops/pipelines/process/deployment-jobs?view=azure-devops
+- deployment: publish
+  dependsOn: build
+  pool:
+    vmImage: windows-latest
+  # https://learn.microsoft.com/en-us/azure/devops/pipelines/library/variable-groups?view=azure-devops&tabs=yaml#use-a-variable-group
+  variables:
+  - group: variables-group
+  - name: isHeku
+    value: $[eq(variables['Build.RequestedFor'], 'Heku')]
+  - name: isTag
+    value: $[startsWith(variables['Build.SourceBranch'], 'refs/tags/v')]
+  condition: and(eq(variables.isHeku, 'True'), eq(variables.isTag, 'True'))
+  environment: publish-vsix
+  strategy:
+    runOnce:
+      deploy:
+        steps:
+        - task: GitHubRelease@1
+          displayName: Create GitHub release
+          inputs:
+            gitHubConnection: github.com_heku
+            repositoryName: $(Build.Repository.Name)
+            action: edit
+            target: $(Build.SourceVersion)
+            tag: $(Build.SourceBranchName)
+            # https://learn.microsoft.com/en-us/azure/devops/pipelines/artifacts/pipeline-artifacts?view=azure-devops&tabs=yaml#use-artifacts-across-stages
+            assets: $(Pipeline.Workspace)/staging/*.vsix
+            changeLogCompareToRelease: lastFullRelease
+            changeLogType: commitBased
+        - task: PowerShell@2
+          displayName: Push to marketplace
+          env:
+            # To use a secret variable in a script, you must explicitly map it as an environment variable.
+            # https://learn.microsoft.com/en-us/azure/devops/pipelines/process/variables?view=azure-devops&tabs=yaml%2Cbatch#secret-variables
+            PERSONAL_ACCESS_TOKEN: $(PERSONAL_ACCESS_TOKEN)
+          inputs:
+            workingDirectory: $(Pipeline.Workspace)/staging
+            targetType: inline
+            script: |
+              Import-Module -Force -Verbose .\vsix.psm1
+              PublishVsix $env:PERSONAL_ACCESS_TOKEN *.vsix publish.manifest.json
