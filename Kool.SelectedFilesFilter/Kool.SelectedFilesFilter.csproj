@@ -8,8 +8,6 @@
   <PropertyGroup>
     <UICulture>en</UICulture>
     <LangVersion>latest</LangVersion>
-    <!-- https://learn.microsoft.com/en-us/azure/devops/pipelines/artifacts/caching-nuget?view=azure-devops -->
-    <RestorePackagesWithLockFile>true</RestorePackagesWithLockFile>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <SchemaVersion>2.0</SchemaVersion>
@@ -93,11 +91,6 @@
   <ItemGroup>
     <PackageReference Include="Community.VisualStudio.Toolkit.17">
       <Version>17.0.492</Version>
-      <ExcludeAssets>runtime</ExcludeAssets>
-      <PrivateAssets>all</PrivateAssets>
-    </PackageReference>
-    <PackageReference Include="Microsoft.VisualStudio.SDK">
-      <Version>17.0.31902.203</Version>
       <ExcludeAssets>runtime</ExcludeAssets>
       <PrivateAssets>all</PrivateAssets>
     </PackageReference>
