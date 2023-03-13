@@ -4,6 +4,7 @@
         <Identity Id="Kool.SelectedFilesFilter.c18317d5-3be4-49f1-8cd0-1956f7c00a1d" Version="0.0.0" Language="en-US" Publisher="Heku" />
         <DisplayName>Selected Files Filter</DisplayName>
         <Description xml:space="preserve">An open source Visual Studio extension to allow you filter selected files in Solution Explorer.</Description>
+        <MoreInfo>https://github.com/heku/kool.selectedfilesfilter</MoreInfo>
         <Icon>Resources\logo.ico</Icon>
         <Tags >kool;solution filter;scope to these</Tags>
     </Metadata>
