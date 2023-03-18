@@ -13,7 +13,7 @@
         <CommandFlag>DefaultInvisible</CommandFlag>
         <CommandFlag>DynamicVisibility</CommandFlag>
         <Strings>
-          <ButtonText>选中文件过滤器</ButtonText>
+          <ButtonText>选中文件筛选器</ButtonText>
           <CommandName>SolutionExplorer.SelectedFilesFilter</CommandName>
           <LocCanonicalName>.SolutionExplorer.SelectedFilesFilter</LocCanonicalName>
         </Strings>

@@ -121,7 +121,7 @@
     <value>Selected Files Filter</value>
   </data>
   <data name="112" xml:space="preserve">
-    <value>一个开源的 Visual Studio 拓展，允许你在解决方案资源管理器中过滤出选中的文件。</value>
+    <value>一个开源的 Visual Studio 拓展，允许你在解决方案资源管理器中筛选出选中的文件。</value>
   </data>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="400" type="System.Resources.ResXFileRef, System.Windows.Forms">
