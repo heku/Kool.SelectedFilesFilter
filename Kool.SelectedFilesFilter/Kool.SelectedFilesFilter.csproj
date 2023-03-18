@@ -73,9 +73,11 @@
   <ItemGroup>
     <VSCTCompile Include="Menus.en.vsct">
       <ResourceName>Menus.ctmenu</ResourceName>
+      <DependentUpon>Menus.vsct</DependentUpon>
     </VSCTCompile>
     <VSCTCompile Include="Menus.zh-Hans.vsct">
       <ResourceName>Menus.ctmenu</ResourceName>
+      <DependentUpon>Menus.vsct</DependentUpon>
     </VSCTCompile>
   </ItemGroup>
   <ItemGroup>
