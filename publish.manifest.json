@@ -5,17 +5,7 @@
     "Other"
   ],
   "identity": {
-    "internalName": "SelectedFilesFilter",
-    "displayName": "Selected Files Filter",
-    "tags": [
-      "kool",
-      "solution filter",
-      "scope to these",
-      "何苦",
-      "解决方案筛选器",
-      "限定为止范围",
-      "选中文件筛选器"
-    ]
+    "internalName": "SelectedFilesFilter"
   },
   "overview": "publish.overview.md",
   "assetFiles": [
