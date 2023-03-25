@@ -6,7 +6,7 @@
     <Description xml:space="preserve">An open source Visual Studio extension to allow you filter selected files in Solution Explorer.</Description>
     <MoreInfo>https://github.com/heku/kool.selectedfilesfilter</MoreInfo>
     <Icon>Resources\logo.png</Icon>
-    <Tags>kool;solution filter;scope to these;何苦;解决方案筛选器;限定为止范围;选中文件筛选器</Tags>
+    <Tags>kool;solution filter;scope to these;何苦;解决方案筛选器;限定为此范围;选中文件筛选器</Tags>
   </Metadata>
   <Installation>
     <InstallationTarget Id="Microsoft.VisualStudio.Community" Version="[17.0,18.0)">

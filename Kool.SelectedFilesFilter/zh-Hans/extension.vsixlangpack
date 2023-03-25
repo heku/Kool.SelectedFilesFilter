@@ -2,6 +2,6 @@
 <PackageLanguagePackManifest Version="2.0.0" xmlns="http://schemas.microsoft.com/developer/vsx-schema/2011">
   <Metadata>
     <DisplayName>Selected Files Filter</DisplayName>
-    <Description>一个开源的 Visual Studio 拓展，允许你在解决方案资源管理器中筛选出选中的文件。</Description>
+    <Description>一个开源的 Visual Studio 扩展，允许你在解决方案资源管理器中筛选出选中的文件。</Description>
   </Metadata>
 </PackageLanguagePackManifest>
