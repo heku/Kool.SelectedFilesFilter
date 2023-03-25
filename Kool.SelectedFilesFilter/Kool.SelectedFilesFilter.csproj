@@ -51,12 +51,8 @@
     <Reference Include="System.ComponentModel.Composition" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Resources\logo.ico">
-      <IncludeInVSIX>true</IncludeInVSIX>
-    </Content>
-    <Content Include="zh-Hans\extension.vsixlangpack">
-      <IncludeInVSIX>true</IncludeInVSIX>
-    </Content>
+    <Content IncludeInVSIX="true" Include="Resources\logo.png" />
+    <Content IncludeInVSIX="true" Include="zh-Hans\extension.vsixlangpack" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Ids.cs" />
@@ -66,37 +62,23 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Menus.vsct" />
-    <None Include="source.extension.vsixmanifest">
-      <SubType>Designer</SubType>
-    </None>
+    <None Include="source.extension.vsixmanifest" />
   </ItemGroup>
   <ItemGroup>
-    <VSCTCompile Include="Menus.en.vsct">
-      <ResourceName>Menus.ctmenu</ResourceName>
-      <DependentUpon>Menus.vsct</DependentUpon>
-    </VSCTCompile>
-    <VSCTCompile Include="Menus.zh-Hans.vsct">
-      <ResourceName>Menus.ctmenu</ResourceName>
-      <DependentUpon>Menus.vsct</DependentUpon>
-    </VSCTCompile>
+    <VSCTCompile ResourceName="Menus.ctmenu" DependentUpon="Menus.vsct" Include="Menus.en.vsct" />
+    <VSCTCompile ResourceName="Menus.ctmenu" DependentUpon="Menus.vsct" Include="Menus.zh-Hans.vsct" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="VSPackage.en.resx">
-      <MergeWithCTO>true</MergeWithCTO>
-      <SubType>Designer</SubType>
-    </EmbeddedResource>
-    <EmbeddedResource Include="VSPackage.zh-Hans.resx">
-      <MergeWithCTO>true</MergeWithCTO>
-      <SubType>Designer</SubType>
-    </EmbeddedResource>
+    <EmbeddedResource MergeWithCTO="true" SubType="Designer" Include="I18n.en.resx" LogicalName="VSPackage.en.resources" />
+    <EmbeddedResource MergeWithCTO="true" SubType="Designer" Include="I18n.zh-Hans.resx" LogicalName="VSPackage.zh-Hans.resources" />
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Community.VisualStudio.Toolkit.17">
-      <Version>17.0.492</Version>
+      <Version>17.0.330</Version>
       <ExcludeAssets>runtime</ExcludeAssets>
       <PrivateAssets>all</PrivateAssets>
     </PackageReference>
-    <PackageReference Include="Microsoft.VSSDK.BuildTools" Version="17.5.4065">
+    <PackageReference Include="Microsoft.VSSDK.BuildTools" Version="17.5.4072">
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
       <PrivateAssets>all</PrivateAssets>
     </PackageReference>

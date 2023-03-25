@@ -1,23 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PackageManifest Version="2.0.0" xmlns="http://schemas.microsoft.com/developer/vsx-schema/2011" xmlns:d="http://schemas.microsoft.com/developer/vsx-schema-design/2011">
-    <Metadata>
-        <Identity Id="Kool.SelectedFilesFilter.c18317d5-3be4-49f1-8cd0-1956f7c00a1d" Version="0.0.0" Language="en-US" Publisher="Heku" />
-        <DisplayName>Selected Files Filter</DisplayName>
-        <Description xml:space="preserve">An open source Visual Studio extension to allow you filter selected files in Solution Explorer.</Description>
-        <MoreInfo>https://github.com/heku/kool.selectedfilesfilter</MoreInfo>
-        <Icon>Resources\logo.ico</Icon>
-        <Tags >kool;solution filter;scope to these</Tags>
-    </Metadata>
-    <Installation>
-        <InstallationTarget Id="Microsoft.VisualStudio.Community" Version="[17.0,18.0)">
-            <ProductArchitecture>amd64</ProductArchitecture>
-        </InstallationTarget>
-    </Installation>
-    <Prerequisites>
-        <Prerequisite Id="Microsoft.VisualStudio.Component.CoreEditor" Version="[17.0,)" DisplayName="Visual Studio core editor" />
-    </Prerequisites>
-    <Assets>
-        <Asset Type="Microsoft.VisualStudio.VsPackage" d:Source="Project" d:ProjectName="%CurrentProject%" Path="|%CurrentProject%;PkgdefProjectOutputGroup|" />
-        <Asset Type="Microsoft.VisualStudio.MefComponent" d:Source="Project" d:ProjectName="%CurrentProject%" Path="|%CurrentProject%|" />
-    </Assets>
+  <Metadata>
+    <Identity Id="Kool.SelectedFilesFilter.c18317d5-3be4-49f1-8cd0-1956f7c00a1d" Version="0.0.0" Language="en-US" Publisher="Heku" />
+    <DisplayName>Selected Files Filter</DisplayName>
+    <Description xml:space="preserve">An open source Visual Studio extension to allow you filter selected files in Solution Explorer.</Description>
+    <MoreInfo>https://github.com/heku/kool.selectedfilesfilter</MoreInfo>
+    <Icon>Resources\logo.png</Icon>
+    <Tags>kool;solution filter;scope to these;何苦;解决方案筛选器;限定为止范围;选中文件筛选器</Tags>
+  </Metadata>
+  <Installation>
+    <InstallationTarget Id="Microsoft.VisualStudio.Community" Version="[17.0,18.0)">
+      <ProductArchitecture>amd64</ProductArchitecture>
+    </InstallationTarget>
+  </Installation>
+  <Prerequisites>
+    <Prerequisite Id="Microsoft.VisualStudio.Component.CoreEditor" Version="[17.0,18.0)" DisplayName="Visual Studio core editor" />
+  </Prerequisites>
+  <Assets>
+    <Asset Type="Microsoft.VisualStudio.VsPackage" d:Source="Project" d:ProjectName="%CurrentProject%" Path="|%CurrentProject%;PkgdefProjectOutputGroup|" />
+    <Asset Type="Microsoft.VisualStudio.MefComponent" d:Source="Project" d:ProjectName="%CurrentProject%" Path="|%CurrentProject%|" />
+  </Assets>
 </PackageManifest>

@@ -6,7 +6,6 @@ using System.Runtime.InteropServices;
 namespace Kool.SelectedFilesFilter;
 
 [Guid(Ids.PACKAGE)]
-[InstalledProductRegistration("#110", "#112", VERSION, IconResourceID = 400)]
 [PackageRegistration(UseManagedResourcesOnly = true, AllowsBackgroundLoading = true)]
 [ProvideMenuResource("Menus.ctmenu", 1)]
 public sealed class Package : ToolkitPackage
